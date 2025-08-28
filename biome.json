@@ -6,19 +6,22 @@
     "includes": ["**"],
     "attributePosition": "auto",
     "indentStyle": "space",
-    "indentWidth": 2,
+    "indentWidth": 4,
     "lineWidth": 120,
     "lineEnding": "lf"
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "single"
+      "quoteStyle": "double"
     }
   },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
+      "complexity": {
+        "useArrowFunction": "off"
+      },
       "style": {
         "noParameterAssign": "error",
         "useAsConstAssertion": "error",
