@@ -13,18 +13,12 @@
   },
   "author": "ascpixi",
   "license": "MIT",
-  "keywords": [
-    "slack",
-    "bolt",
-    "slackapi",
-    "typescript"
-  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/slack-samples/bolt-ts-starter-template.git"
+    "url": "https://github.com/ascpixi/kerfus.git"
   },
   "bugs": {
-    "url": "https://github.com/slack-samples/bolt-ts-starter-template/issues"
+    "url": "https://github.com/ascpixi/kerfus/issues"
   },
   "dependencies": {
     "@slack/bolt": "^4.4.0",
