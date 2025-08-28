@@ -1,7 +1,8 @@
 {
-  "name": "bolt-ts-starter-template",
+  "name": "kerfus",
   "version": "1.0.0",
-  "description": "A scaffold template for Slack apps",
+  "description": "ascpixi's personal bot for Hack Club's Slack",
+  "private": true,
   "main": "dist/app.js",
   "scripts": {
     "build": "tsc",
@@ -10,7 +11,7 @@
     "lint:fix": "npx @biomejs/biome check --write src",
     "test": "npm run build && npm run lint"
   },
-  "author": "Slack Technologies, LLC",
+  "author": "ascpixi",
   "license": "MIT",
   "keywords": [
     "slack",
