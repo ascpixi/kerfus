@@ -68,10 +68,11 @@ export async function connectionsForUser(slackId: string): Promise<UserConnectio
     );
 
     const user = await getUserData(slackId);
+    console.log("user:",user)
     if (user) {
         // This user has data in the database - re-authenticate them
         if (user.bskyIdentifier && user.bskyAppPassword) {
-            await bskyLogin(slackId, user.bskyIdentifier, user.bskyIdentifier, false);
+            await bskyLogin(slackId, user.bskyIdentifier, user.bskyAppPassword, false);
         }
     }
 
