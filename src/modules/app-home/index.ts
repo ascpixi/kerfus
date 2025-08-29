@@ -82,7 +82,6 @@ async function updateHome(user: string, client: WebClient) {
 
 export function register(app: App) {
     app.event("app_home_opened", async ({ event, client }) => {
-        logInfo(`Creating app home view for user ${event.user}`, event);
         if (event.tab !== "home")
             return;
 
