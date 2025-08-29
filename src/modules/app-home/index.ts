@@ -94,9 +94,8 @@ export function register(app: App) {
         if (body.type != "block_actions")
             return;
 
-        await client.views.update({
-            view_id: body.view!.id,
-            hash: body.view!.hash,
+        await client.views.open({
+            trigger_id: body.trigger_id,
             view: {
                 "callback_id": "submit_bsky_credentials",
                 "title": {
