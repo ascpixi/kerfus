@@ -80,6 +80,16 @@ export function db() {
     return database;
 }
 
-export function getUserData(slackId: string) {
+export async function getUserData(slackId: string) {
+    await dbAcknowledgeUser(slackId);
     return db().data.knownUsers.find(x => x.id == slackId);
+}
+
+export async function dbAcknowledgeUser(slackId: string) {
+    if (db().data.knownUsers.some(x => x.id == slackId))
+        return;
+
+    await db().update(db => {
+        db.knownUsers.push({ id: slackId });
+    });
 }

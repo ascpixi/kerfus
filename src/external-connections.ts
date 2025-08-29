@@ -1,5 +1,6 @@
 import * as atp from "@atproto/api";
 import { db, getUserData } from "./db";
+import { logError } from "./log";
 
 const connections = new Map<string, UserConnections>();
 
@@ -48,6 +49,7 @@ export async function bskyLogin(slackId: string, handle: string, password: strin
         return true;
     }
     catch (ex) {
+        logError("Bluesky connection failed!", ex);
         connections.bsky = { service: null, state: "FAILED" };
         return false;
     }
@@ -65,7 +67,7 @@ export async function connectionsForUser(slackId: string): Promise<UserConnectio
         }
     );
 
-    const user = getUserData(slackId);
+    const user = await getUserData(slackId);
     if (user) {
         // This user has data in the database - re-authenticate them
         if (user.bskyIdentifier && user.bskyAppPassword) {
