@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 
 import { registerAllModules } from "./modules";
 import { initializeDatabase } from "./db";
+import { logInfo } from "./log";
 
 dotenv.config();
 
@@ -10,7 +11,7 @@ const app = new App({
     token: process.env.SLACK_BOT_TOKEN,
     socketMode: true,
     appToken: process.env.SLACK_APP_TOKEN,
-    logLevel: LogLevel.DEBUG,
+    logLevel: LogLevel.INFO,
 });
 
 (async () => {
@@ -19,7 +20,7 @@ const app = new App({
         registerAllModules(app);
 
         await app.start(process.env.PORT || 3000);
-        app.logger.info("[^owo^] Kerfuś is up and running!");
+        logInfo("Kerfuś is up and running!");
     } catch (error) {
         app.logger.error("Unable to start App", error);
     }
