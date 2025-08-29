@@ -29,7 +29,7 @@ class KerfusDatabaseFile<T> implements Adapter<T> {
         const json = JSON.stringify(data);
 
         const iv = crypto.randomBytes(16);
-        const cipher = crypto.createCipheriv("aes-256-gcm", this.key, iv);
+        const cipher = crypto.createCipheriv("aes-256-ctr", this.key, iv);
         const encrypted = Buffer.concat([iv, cipher.update(json), cipher.final()]);
 
         this.writer.write(encrypted);
@@ -51,7 +51,7 @@ class KerfusDatabaseFile<T> implements Adapter<T> {
 
         const iv = data.subarray(0, 16);
         const encrypted = data.subarray(16);
-        const decipher = crypto.createDecipheriv("aes-256-gcm", this.key, iv);
+        const decipher = crypto.createDecipheriv("aes-256-ctr", this.key, iv);
         const decrypted = Buffer.concat([decipher.update(encrypted), decipher.final()]).toString();
         return JSON.parse(decrypted);
     }
