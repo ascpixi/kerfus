@@ -5,7 +5,7 @@
   "private": true,
   "main": "dist/app.js",
   "scripts": {
-    "build": "tsc",
+    "build": "node fix-atproto-lexicon.js && tsc",
     "start": "npm run build && node ./dist/app.js",
     "lint": "npx @biomejs/biome check src",
     "lint:fix": "npx @biomejs/biome check --write src",
@@ -21,8 +21,11 @@
     "url": "https://github.com/ascpixi/kerfus/issues"
   },
   "dependencies": {
+    "@atproto/api": "^0.16.5",
     "@slack/bolt": "^4.4.0",
-    "dotenv": "~17.2.1"
+    "dotenv": "~17.2.1",
+    "lowdb": "^7.0.1",
+    "steno": "^4.0.2"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.1.3",

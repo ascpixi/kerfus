@@ -1,6 +1,8 @@
 import { App, LogLevel } from "@slack/bolt";
 import * as dotenv from "dotenv";
-import registerListeners from "./listeners";
+
+import { registerAllModules } from "./modules";
+import { initializeDatabase } from "./db";
 
 dotenv.config();
 
@@ -11,12 +13,13 @@ const app = new App({
     logLevel: LogLevel.DEBUG,
 });
 
-registerListeners(app);
-
-(async function () {
+(async () => {
     try {
+        await initializeDatabase();
+        registerAllModules(app);
+
         await app.start(process.env.PORT || 3000);
-        app.logger.info("⚡️ Bolt app is running! ⚡️");
+        app.logger.info("[^owo^] Kerfuś is up and running!");
     } catch (error) {
         app.logger.error("Unable to start App", error);
     }
