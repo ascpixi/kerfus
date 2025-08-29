@@ -17,8 +17,35 @@ async function updateHome(user: string, client: WebClient) {
                     "type": "header",
                     "text": {
                         "type": "plain_text",
+                        "text": "Hi! I'm Kerfus!",
+                        "emoji": true
+                    }
+                },
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": "I'm @ascpixi's silly little robotic helper, hosted on Nest! I might suddenly break at any moment, though... please let my owner know if that happens. You can find my source code <https://github.com/ascpixi/kerfus|here>!"
+                    },
+                    "accessory": {
+                        "type": "image",
+                        "image_url": "https://raw.githubusercontent.com/ascpixi/kerfus/refs/heads/main/etc/niko-kerfus-sqr.png",
+                        "alt_text": "Niko from OneShot riding a Kerfuś robot"
+                    }
+                },
+                {
+                    "type": "header",
+                    "text": {
+                        "type": "plain_text",
                         "text": ":link:  External connections",
                         "emoji": true
+                    }
+                },
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": "Data used to persist these connections will be stored in an encrypted local database."
                     }
                 },
                 {
