@@ -21,7 +21,7 @@
     "url": "https://github.com/ascpixi/kerfus/issues"
   },
   "dependencies": {
-    "@atproto/api": "^0.16.5",
+    "@atproto/api": "^0.17.0",
     "@slack/bolt": "^4.4.0",
     "dotenv": "~17.2.1",
     "ffprobe": "^1.1.2",
